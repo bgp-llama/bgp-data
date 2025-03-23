@@ -17,7 +17,6 @@ def get_ribs():
         timestamp = rib_entry["timestamp"]
         entry_id = rib_entry["entry_id"]
     
-
         prefix = rib_entry["prefix"]
         as_path = rib_entry["as_path"]
 

@@ -2,9 +2,9 @@ from pymongo import MongoClient
 
 MONGO_URI = "mongodb://bgpmongo:27017/"
 DB_NAME = "bgp_data"
-UPDATE_COLLECTION_NAME = f"update_entries_202502010000"
-RIB_COLLECTION_NAME = f"rib_202502010000"
-RIB_ENTRIES_NAME = f"rib_entries_202502010000"
+UPDATE_COLLECTION_NAME = f"update_entries_202501010000"
+RIB_COLLECTION_NAME = f"rib_202501010000"
+RIB_ENTRIES_NAME = f"rib_entries_202501010000"
 TARGET_AS = "48362"
 
 def get_changes():
@@ -14,6 +14,7 @@ def get_changes():
     update_collection = db[UPDATE_COLLECTION_NAME]
 
     count = 0
+
     # update 데이터 순회
     for entry in update_collection.find({"as_path": TARGET_AS}):
         announce_prefixes = entry["announce_prefixes"]
@@ -32,6 +33,7 @@ def get_changes():
                 rib_entry = rib_collection.find_one({"prefix": prefix})
                 if rib_entry is None:
                     print("new prefix:", prefix)
+                    continue
                 else:
                     rib_entry_id = rib_entry["entry_id"]
 
