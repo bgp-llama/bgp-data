@@ -20,9 +20,6 @@ def get_ribs():
         prefix = rib_entry["prefix"]
         as_path = rib_entry["as_path"]
 
-        print(prefix)
-        print(as_path)
-
         # as_path가 존재하는 경우
         if len(as_path) > 0:
             origin_as_paths = []

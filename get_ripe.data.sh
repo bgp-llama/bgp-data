@@ -8,3 +8,5 @@ wget -P ./routeviews_data https://archive.routeviews.org/bgpdata/2025.01/UPDATES
 
 bzip2 -d routeviews_data/rib.20250115.0000.bz2
 bzip2 -d routeviews_data/updates.20250115.0000.bz2
+
+curl -o ./routeviews_data/rib.20220201.0000.bz2 https://routeviews.org/bgpdata/2022.02/RIBS/rib.20220201.0000.bz2

@@ -1,4 +1,14 @@
-ripe_data/
-routeviews_data/
+# python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# mac
 .DS_Store
 
+# heavy files
+ripe_data/
+routeviews_data/
+
+# gpt api 
+prompt_hourly_report.py

@@ -3,11 +3,11 @@ import mrtparse
 from pymongo import MongoClient
 
 # SUFFIX = "200404081600"
-SUFFIX = "202501010000"
+SUFFIX = "202202030000"
 
 # ✅ MongoDB 연결 정보
 MONGO_URI = "mongodb://bgpmongo:27017/"
-DB_NAME = "bgp_data"
+DB_NAME = "20220203"
 PEERS_COLLECTION = f"peers_{SUFFIX}"
 RIB_COLLECTION = f"rib_{SUFFIX}"
 RIB_ENTRIES_COLLECTION = f"rib_entries_{SUFFIX}"

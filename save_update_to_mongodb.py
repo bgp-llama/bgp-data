@@ -3,12 +3,12 @@ import os
 from datetime import datetime
 from pymongo import MongoClient, errors
 
-SUFFIX = "202501150000"
+SUFFIX = "202202030100"
 # ✅ MongoDB 연결 정보
 MONGO_URI = "mongodb://bgpmongo:27017/"
-DB_NAME = "bgp_data"
+DB_NAME = "20220203"
 COLLECTION_NAME = f"update_entries_{SUFFIX}"
-MRT_FILE_NAME = f"./routeviews_data/updates.{SUFFIX[:8]}.{SUFFIX[-4:]}"
+MRT_FILE_NAME = f"./routeviews_data/updates.{SUFFIX[:8]}.0145"
 
 
 def update_to_mongodb(file_path, mongo_uri, db_name, collection_name):
@@ -84,7 +84,6 @@ def update_to_mongodb(file_path, mongo_uri, db_name, collection_name):
 
                 if len(batch) >= batch_size:
                     collection.insert_many(batch)
-                    print(f"Inserted {len(batch)} UPDATE entries into MongoDB...")
                     batch.clear()
 
             except Exception as e:
